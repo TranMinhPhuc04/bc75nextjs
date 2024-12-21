@@ -1,4 +1,5 @@
 import { fetchDetail } from "@/app/action/services/productApi";
+import Image  from "next/image";
 
 export async function generateMetadata({ params }: any) {
   const prodDetail = await fetchDetail(params.id);
@@ -42,9 +43,16 @@ export default async function Detail({ params }: any) {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="flex justify-center items-center">
-          <img
+          {/* <img
             src={data.image}
             alt={data.name}
+            className="rounded-lg shadow-lg w-full h-auto object-cover max-w-md"
+          /> */}
+          <Image
+            src={data.image}
+            alt={data.name}
+            width={500}
+            height={500}
             className="rounded-lg shadow-lg w-full h-auto object-cover max-w-md"
           />
         </div>
